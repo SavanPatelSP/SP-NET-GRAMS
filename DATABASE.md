@@ -1,0 +1,18 @@
+# Database
+
+users
+profiles
+coins
+coin_transactions
+diamonds
+diamond_transactions
+premium_subscriptions
+premium_requests
+staff_accounts
+admin_logs
+reports
+appeals
+referrals
+ai_usage
+analytics_events
+notifications
