@@ -40,7 +40,14 @@ membership.setText("\nMEMBERSHIP\nTier: FREE");
 
 android.widget.TextView community = new android.widget.TextView(context);
 community.setText("\nCOMMUNITY\nReferrals: 0");
+android.widget.TextView account = new android.widget.TextView(context);
+account.setText(
+        "\nACCOUNT\n" +
+        "User ID: 1\n" +
+        "Created: " + new java.util.Date()
+);
 
+layout.addView(account);
 layout.addView(title);
 layout.addView(identity);
 layout.addView(membership);
