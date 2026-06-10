@@ -134,6 +134,7 @@ import org.telegram.ui.bots.BotDownloads;
 import org.telegram.ui.bots.BotLocation;
 import org.telegram.ui.bots.BotWebViewSheet;
 import org.telegram.ui.bots.SetupEmojiStatusSheet;
+import org.telegram.ui.spnet.SPNetProfileActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -689,6 +690,14 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
         items.add(SettingCell.Factory.of(8, IconBackgroundColors.CYAN.top, IconBackgroundColors.CYAN.bottom, R.drawable.settings_devices, getString(R.string.SettingsDevices), getString(R.string.SettingsDevicesInfo)));
         items.add(SettingCell.Factory.of(9, IconBackgroundColors.ORANGE_DEEP.top, IconBackgroundColors.ORANGE_DEEP.bottom, R.drawable.settings_power, getString(R.string.SettingsPowerSaving), getString(R.string.SettingsPowerSavingInfo)));
         items.add(SettingCell.Factory.of(10, IconBackgroundColors.PURPLE.top, IconBackgroundColors.PURPLE.bottom, R.drawable.settings_language, getString(R.string.SettingsLanguage), LocaleController.getCurrentLanguageName()));
+items.add(SettingCell.Factory.of(
+        50,
+        IconBackgroundColors.BLUE.top,
+        IconBackgroundColors.BLUE.bottom,
+        R.drawable.settings_account,
+        "SP NET Profile",
+        "Manage your SP-NET account"
+));
 
         items.add(UItem.asShadow(null));
 
@@ -812,7 +821,9 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             case 10:
                 presentFragment(new LanguageSelectActivity());
                 break;
-
+case 50:
+    presentFragment(new SPNetProfileActivity());
+    break;
             case 11:
                 presentFragment(new PremiumPreviewFragment("settings"));
                 break;
