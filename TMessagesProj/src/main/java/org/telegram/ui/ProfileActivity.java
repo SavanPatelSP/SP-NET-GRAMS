@@ -610,6 +610,12 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     public int birthdayRow;
     private int setUsernameRow;
     private int bioRow;
+    private int spnetSectionRow;
+    private int spnetBadgeRow;
+    private int spnetPremiumRow;
+    private int spnetCoinsRow;
+    private int spnetDiamondsRow;
+    private int spnetReferralsRow;
     private int phoneSuggestionSectionRow;
     private int graceSuggestionRow;
     private int graceSuggestionSectionRow;
@@ -10538,6 +10544,13 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 numberRow = rowCount++;
                 setUsernameRow = rowCount++;
                 bioRow = rowCount++;
+
+                spnetSectionRow = rowCount++;
+                spnetBadgeRow = rowCount++;
+                spnetPremiumRow = rowCount++;
+                spnetCoinsRow = rowCount++;
+                spnetDiamondsRow = rowCount++;
+                spnetReferralsRow = rowCount++;
 
                 settingsSectionRow = rowCount++;
 
