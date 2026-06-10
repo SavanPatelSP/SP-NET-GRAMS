@@ -24,11 +24,29 @@ public class SPNetProfileActivity extends BaseFragment {
 
         FrameLayout frameLayout = new FrameLayout(context);
 
-android.widget.TextView textView = new android.widget.TextView(context);
-textView.setText("SP NET Profile\n\nBadge: NONE\nPremium: FREE");
-textView.setTextSize(18);
+android.widget.LinearLayout layout = new android.widget.LinearLayout(context);
+layout.setOrientation(android.widget.LinearLayout.VERTICAL);
+layout.setPadding(40, 40, 40, 40);
 
-frameLayout.addView(textView);
+android.widget.TextView title = new android.widget.TextView(context);
+title.setText("SP NET Profile");
+title.setTextSize(24);
+
+android.widget.TextView identity = new android.widget.TextView(context);
+identity.setText("\nIDENTITY\nBadge: NONE");
+
+android.widget.TextView membership = new android.widget.TextView(context);
+membership.setText("\nMEMBERSHIP\nTier: FREE");
+
+android.widget.TextView community = new android.widget.TextView(context);
+community.setText("\nCOMMUNITY\nReferrals: 0");
+
+layout.addView(title);
+layout.addView(identity);
+layout.addView(membership);
+layout.addView(community);
+
+frameLayout.addView(layout);
 
 fragmentView = frameLayout;
 
