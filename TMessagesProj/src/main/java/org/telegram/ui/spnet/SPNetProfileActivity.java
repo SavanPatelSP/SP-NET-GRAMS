@@ -3,6 +3,9 @@ package org.telegram.ui.spnet;
 import android.content.Context;
 import android.widget.FrameLayout;
 
+import org.telegram.spnet.SPNetUserData;
+import org.telegram.spnet.SPNetUserManager;
+
 import org.telegram.ui.ActionBar.ActionBar;
 import org.telegram.ui.ActionBar.BaseFragment;
 
@@ -23,7 +26,8 @@ public class SPNetProfileActivity extends BaseFragment {
         );
 
         FrameLayout frameLayout = new FrameLayout(context);
-
+SPNetUserData user =
+        SPNetUserManager.getInstance().getUser(1L);
 android.widget.LinearLayout layout = new android.widget.LinearLayout(context);
 layout.setOrientation(android.widget.LinearLayout.VERTICAL);
 layout.setPadding(40, 40, 40, 40);
@@ -33,25 +37,39 @@ title.setText("SP NET Profile");
 title.setTextSize(24);
 
 android.widget.TextView identity = new android.widget.TextView(context);
-identity.setText("\nIDENTITY\nBadge: NONE");
+identity.setText(
+        "\nIDENTITY\nBadge: " + user.getBadge()
+);
 
 android.widget.TextView membership = new android.widget.TextView(context);
-membership.setText("\nMEMBERSHIP\nTier: FREE");
-
+membership.setText(
+        "\nMEMBERSHIP\nTier: " + user.getPremiumTier()
+);
 android.widget.TextView community = new android.widget.TextView(context);
-community.setText("\nCOMMUNITY\nReferrals: 0");
+community.setText(
+        "\nCOMMUNITY\nReferrals: " +
+        user.getReferralCount()
+);
+android.widget.TextView economy = new android.widget.TextView(context);
+economy.setText(
+        "\nECONOMY\n" +
+        "Coins: " + user.getCoins() + "\n" +
+        "Diamonds: " + user.getDiamonds()
+);
 android.widget.TextView account = new android.widget.TextView(context);
 account.setText(
         "\nACCOUNT\n" +
-        "User ID: 1\n" +
-        "Created: " + new java.util.Date()
+        "User ID: " + user.getUserId() + "\n" +
+        "Created: " +
+        new java.util.Date(user.getCreatedAt())
 );
 
-layout.addView(account);
 layout.addView(title);
 layout.addView(identity);
 layout.addView(membership);
 layout.addView(community);
+layout.addView(economy);
+layout.addView(account);
 
 frameLayout.addView(layout);
 
