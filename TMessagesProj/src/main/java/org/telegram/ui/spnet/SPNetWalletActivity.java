@@ -8,6 +8,7 @@ import android.widget.TextView;
 import org.telegram.spnet.SPNetUserData;
 import org.telegram.spnet.SPNetUserManager;
 import org.telegram.ui.spnet.SPNetStoreActivity;
+import org.telegram.ui.spnet.SPNetAchievementsActivity;
 import org.telegram.ui.ActionBar.BaseFragment;
 
 public class SPNetWalletActivity extends BaseFragment {
@@ -167,6 +168,22 @@ openStore.setOnClickListener(v ->
 );
 
 layout.addView(openStore);
+
+android.widget.Button achievementsButton =
+        new android.widget.Button(context);
+
+achievementsButton.setText(
+        "🏆 Achievements"
+);
+
+achievementsButton.setOnClickListener(v ->
+        presentFragment(
+                new SPNetAchievementsActivity()
+        )
+);
+
+layout.addView(achievementsButton);
+
         TextView stats =
                 new TextView(context);
 
