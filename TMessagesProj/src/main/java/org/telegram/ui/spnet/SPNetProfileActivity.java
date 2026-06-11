@@ -2,6 +2,7 @@ package org.telegram.ui.spnet;
 
 import android.content.Context;
 import android.widget.FrameLayout;
+import org.telegram.ui.spnet.SPNetWalletActivity;
 
 import org.telegram.spnet.SPNetUserData;
 import org.telegram.spnet.SPNetUserManager;
@@ -69,6 +70,24 @@ layout.addView(identity);
 layout.addView(membership);
 layout.addView(community);
 layout.addView(economy);
+android.widget.Button walletButton =
+
+        new android.widget.Button(context);
+
+walletButton.setText("💰 Open Wallet");
+
+walletButton.setOnClickListener(v ->
+
+        presentFragment(
+
+                new SPNetWalletActivity()
+
+        )
+
+);
+
+layout.addView(walletButton);
+
 layout.addView(account);
 
 frameLayout.addView(layout);
