@@ -2,6 +2,7 @@ package org.telegram.spnet.coins;
 
 import org.telegram.spnet.SPNetUserData;
 import org.telegram.spnet.SPNetUserManager;
+import org.telegram.spnet.coins.SPNetTransactionManager;
 
 public class SPNetCoinManager {
 
@@ -26,6 +27,12 @@ public class SPNetCoinManager {
     public void addCoins(long userId, int amount) {
         SPNetUserManager.getInstance()
                 .addCoins(userId, amount);
+    SPNetTransactionManager.getInstance()
+        .recordTransaction(
+                userId,
+                amount,
+                "Coin Reward"
+        );
     }
 
     public boolean spendCoins(long userId, int amount) {
@@ -38,6 +45,14 @@ public class SPNetCoinManager {
         }
 
         user.setCoins(user.getCoins() - amount);
-        return true;
+
+SPNetTransactionManager.getInstance()
+        .recordTransaction(
+                userId,
+                -amount,
+                "Coin Spend"
+        );
+
+return true;
     }
 }
