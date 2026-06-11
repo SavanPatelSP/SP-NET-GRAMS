@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import org.telegram.spnet.SPNetUserData;
 import org.telegram.spnet.SPNetUserManager;
+import org.telegram.ui.spnet.SPNetStoreActivity;
 import org.telegram.ui.ActionBar.BaseFragment;
 
 public class SPNetWalletActivity extends BaseFragment {
@@ -154,6 +155,18 @@ upgradePremium.setOnClickListener(v ->
 );
 
 layout.addView(upgradePremium);
+android.widget.Button openStore =
+        new android.widget.Button(context);
+
+openStore.setText("🛒 Open Store");
+
+openStore.setOnClickListener(v ->
+        presentFragment(
+                new SPNetStoreActivity()
+        )
+);
+
+layout.addView(openStore);
         TextView stats =
                 new TextView(context);
 
