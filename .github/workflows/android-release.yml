@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - phase7-store
+      - phase8-admin-control-center
     tags:
       - 'v*'
 
