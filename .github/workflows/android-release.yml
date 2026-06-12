@@ -34,10 +34,20 @@ jobs:
         run: |
           find . -name "*.apk"
 
+      - name: Upload to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID_BETA }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          testers: savanpatelssp@gmail.com
+          file: TMessagesProj_App/build/outputs/apk/afat/debug/app.apk
+          releaseNotes: |
+            Automated beta build from GitHub Actions.
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-files: |
-  TMessagesProj_App/build/outputs/apk/afat/debug/app.apk
-  TMessagesProj_AppStandalone/build/outputs/apk/afat/debug/app.apk
-  TMessagesProj_AppHuawei/build/outputs/apk/afat/debug/app-huawei.apk
+          files: |
+            TMessagesProj_App/build/outputs/apk/afat/debug/app.apk
+            TMessagesProj_AppStandalone/build/outputs/apk/afat/debug/app.apk
+            TMessagesProj_AppHuawei/build/outputs/apk/afat/debug/app-huawei.apk
